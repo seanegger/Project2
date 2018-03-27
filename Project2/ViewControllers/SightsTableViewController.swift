@@ -10,9 +10,20 @@ import UIKit
 
 class SightsTableViewController: UITableViewController {
 
+    var file : String?
+    var sightStore : SightStore!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        file = Bundle.main.path(forResource: "sights", ofType: "plist")
+        let sights = NSArray(contentsOfFile: file!) as! [Dictionary<String, Any>]
+        
+        for sight in sights{
+            sightStore.createItem(name: sight["name"]! as! String, latitude: sight["latitude"] as! Double, longitude: sight["longitude"] as! Double)
+        }
+        
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -28,24 +39,24 @@ class SightsTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return sightStore.getSize()
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SightTableViewCell", for: indexPath) as! SightTableViewCell
+        
+        let sight = sightStore.allSights[indexPath.row]
+        cell.nameLabel.text = sight.name
         // Configure the cell...
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -82,14 +93,25 @@ class SightsTableViewController: UITableViewController {
     }
     */
 
-    /*
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        switch segue.identifier{
+        case "showSight"?:
+            if let row = tableView.indexPathForSelectedRow?.row{
+                let sight = sightStore.allSights[row]
+                let sightDetailViewController = segue.destination as! SightDetailViewController
+                sightDetailViewController.sight = sight
+            }
+            
+        default:
+            preconditionFailure("Unexpected Segue Failure")
+        }
     }
-    */
+    
 
 }
