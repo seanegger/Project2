@@ -25,6 +25,7 @@ class SightDetailViewController: UIViewController {
         ano.coordinate = sight.placeMark.coordinate
         ano.title = sight.name
         map.addAnnotation(ano)
+        map.showsUserLocation = true
         //map.centerCoordinate = sight.placeMark.coordinate
         //image.image = sight.photo
 
