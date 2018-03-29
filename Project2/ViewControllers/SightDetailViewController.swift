@@ -17,10 +17,14 @@ class SightDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let span = MKCoordinateSpan(latitudeDelta: 0.001, longitudeDelta: 0.001)
+        let span = MKCoordinateSpan(latitudeDelta: 0.003, longitudeDelta: 0.003)
         let region = MKCoordinateRegion(center: sight.placeMark.coordinate, span: span)
         map.setRegion(region, animated: true)
         map.sizeToFit()
+        let ano = MKPointAnnotation()
+        ano.coordinate = sight.placeMark.coordinate
+        ano.title = sight.name
+        map.addAnnotation(ano)
         //map.centerCoordinate = sight.placeMark.coordinate
         //image.image = sight.photo
 

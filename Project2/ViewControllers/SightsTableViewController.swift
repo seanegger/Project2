@@ -18,7 +18,6 @@ class SightsTableViewController: UITableViewController {
         tableView.delegate = self
         let file = Bundle.main.path(forResource: "sights", ofType: "plist")
         let sights = NSArray(contentsOfFile: file!) as! [Dictionary<String, Any>]
-        print(sights.count)
         for sight in sights{
             
             sightStore.append(Sight(name: sight["name"] as! String, latitude: sight["longitude"] as! Double, longitude: sight["latitude"] as! Double))
