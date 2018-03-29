@@ -8,12 +8,14 @@
 
 import Foundation
 
-class Link {
+class Link : NSObject{
     var name : String
     var link : String
+    var label : String
     
     init(name : String, link : String)
     {
+        self.label = "Go"
         self.name = name
         self.link = link
     }

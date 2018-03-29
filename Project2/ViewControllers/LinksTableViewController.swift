@@ -19,7 +19,6 @@ class LinksTableViewController: UITableViewController {
 
         let links = NSArray(contentsOfFile: file!) as! [Dictionary<String, Any>]
         for link in links{
-            
             linkStore.append(Link(name : link["name"] as! String, link : link["url"] as! String))
         }
         // Uncomment the following line to preserve selection between presentations
@@ -48,10 +47,12 @@ class LinksTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell : ExternalLinksTableViewCell = tableView.dequeueReusableCell(withIdentifier: "ExternalLinksTableViewCell", for: indexPath) as! ExternalLinksTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ExternalLinksTableViewCell", for : indexPath) as! ExternalLinksTableViewCell
         let link = linkStore[indexPath.row]
+        cell.configure(nlink: link.link)
         cell.nameLabel.text = link.name
-        cell.button.setTitle(link.link, for: .normal)
+        cell.sizeToFit()
+        cell.button.setTitle("GO", for: .normal)
         // Configure the cell...
 
         return cell

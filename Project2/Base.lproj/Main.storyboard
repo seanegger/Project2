@@ -118,6 +118,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="JEo-Jc-lgn" kind="show" id="Il8-3h-94C"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -130,6 +133,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iO3-2F-ROc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="919" y="627"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="LTm-16-t2V">
+            <objects>
+                <viewController id="JEo-Jc-lgn" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6qd-xD-bSN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="voB-qD-IFt"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GAr-PL-afM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1812" y="653"/>
         </scene>
         <!--Notes-->
         <scene sceneID="RaM-pt-M2C">
@@ -216,19 +234,21 @@
                                                 <action selector="goToSite:" destination="reb-UW-FnX" eventType="touchUpInside" id="OLm-oX-g7z"/>
                                             </connections>
                                         </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EAH-am-nah">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EAH-am-nah">
                                             <rect key="frame" x="35" y="11" width="42" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="EAH-am-nah" firstAttribute="centerY" secondItem="pwP-n7-GWT" secondAttribute="centerY" id="l2o-aE-fc7"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <accessibility key="accessibilityConfiguration" identifier="ExternalLinksTableViewCell"/>
                                 <connections>
-                                    <outlet property="name" destination="EAH-am-nah" id="b83-V7-6c7"/>
+                                    <outlet property="button" destination="8Yz-iw-20P" id="N3T-i6-wTg"/>
                                     <outlet property="nameLabel" destination="EAH-am-nah" id="mdI-Ho-ahx"/>
-                                    <outlet property="url" destination="8Yz-iw-20P" id="tAI-DT-s5Q"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
