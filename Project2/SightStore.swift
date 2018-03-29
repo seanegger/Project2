@@ -16,6 +16,10 @@ class SightStore{
         allSights.append(newSight)
         return newSight
     }
+    init()
+    {
+        allSights = []
+    }
     
     func getSize() -> Int{
         return allSights.count

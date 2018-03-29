@@ -14,28 +14,42 @@
         <scene sceneID="06e-rV-m5z">
             <objects>
                 <tableViewController id="hUY-M0-nE2" customClass="SightsTableViewController" customModule="Project2" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Z3n-vP-noG">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Z3n-vP-noG" customClass="SightTableViewController">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="IcB-eA-L2T">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SightTableViewCell" id="IcB-eA-L2T" customClass="SightTableViewCell" customModule="Project2" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IcB-eA-L2T" id="nQI-30-X2M" customClass="SightTableViewCell" customModule="Project2" customModuleProvider="target">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="SightTableViewCel" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IcB-eA-L2T" id="nQI-30-X2M" customClass="SightTableViewCell" customModule="Project2">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y0x-k4-0bm" customClass="na">
-                                            <rect key="frame" x="24" y="11" width="42" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Ebf-SP-J4A">
+                                            <rect key="frame" x="166.5" y="11" width="42" height="20.5"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="u0w-Q8-3Pk">
+                                                    <rect key="frame" x="0.0" y="0.0" width="42" height="20.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xrv-rd-5v1">
+                                                            <rect key="frame" x="0.0" y="0.0" width="42" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                        </stackView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Ebf-SP-J4A" firstAttribute="centerX" secondItem="nQI-30-X2M" secondAttribute="centerX" id="XKz-zr-7gh"/>
+                                        <constraint firstItem="Ebf-SP-J4A" firstAttribute="centerY" secondItem="nQI-30-X2M" secondAttribute="centerY" id="zYc-0u-3di"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="nameLabel" destination="Xrv-rd-5v1" id="IwI-pN-hYb"/>
                                     <segue destination="Hpm-HP-uOC" kind="show" identifier="showSight" action="showDetailViewController:sender:" id="ZJU-1c-aCQ"/>
                                 </connections>
                             </tableViewCell>
@@ -63,12 +77,20 @@
                                 <rect key="frame" x="50" y="108" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="b1R-ek-KUG">
-                                <rect key="frame" x="57" y="396" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="b1R-ek-KUG">
+                                <rect key="frame" x="16" y="350" width="343" height="246"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="246" id="U32-hs-ql1"/>
+                                    <constraint firstAttribute="width" constant="343" id="x6l-n7-eFO"/>
+                                </constraints>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="b1R-ek-KUG" firstAttribute="centerX" secondItem="L10-uJ-2WT" secondAttribute="centerX" id="Hay-CS-Yat"/>
+                            <constraint firstItem="L10-uJ-2WT" firstAttribute="bottom" secondItem="b1R-ek-KUG" secondAttribute="bottom" constant="22" id="ZOo-BU-Q9S"/>
+                            <constraint firstItem="b1R-ek-KUG" firstAttribute="top" secondItem="L10-uJ-2WT" secondAttribute="top" constant="286" id="eNM-Iv-eQq"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="L10-uJ-2WT"/>
                     </view>
                     <connections>
@@ -78,7 +100,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iS1-6M-cmd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1791" y="-54"/>
+            <point key="canvasLocation" x="1789.5999999999999" y="-54.422788605697157"/>
         </scene>
         <!--Tour-->
         <scene sceneID="fvX-tk-Wet">

@@ -4,6 +4,22 @@
 <array>
 	<dict>
 		<key>name</key>
+		<string>ECHO, Leahy Center for Lake Champlain</string>
+		<key>longitude</key>
+		<real>44.4764799</real>
+		<key>latitude</key>
+		<real>-73.22123809999999</real>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Town Hall</string>
+		<key>longitude</key>
+		<real>44.4763032</real>
+		<key>latitude</key>
+		<real>-73.2135402</real>
+	</dict>
+	<dict>
+		<key>name</key>
 		<string>Ben and Jerry&apos;s</string>
 		<key>longitude</key>
 		<real>44.4794276</real>

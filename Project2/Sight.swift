@@ -12,13 +12,13 @@ import MapKit
 class Sight : NSObject{
     var name : String
     var placeMark : MKPlacemark
-    var photo : UIImage
+    //var photo : UIImage
     
     init(name : String, latitude: Double, longitude: Double){
         self.name = name
         self.placeMark = MKPlacemark.init(coordinate: CLLocationCoordinate2D.init(latitude: latitude, longitude: longitude))
-        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary)
-        {self.photo = nil
-        }
+        //if UIImagePickerController.isSourceTypeAvailable(.photoLibrary)
+        //{self.photo = nil
+        //}
         }
 }

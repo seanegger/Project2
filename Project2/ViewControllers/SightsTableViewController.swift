@@ -10,17 +10,18 @@ import UIKit
 
 class SightsTableViewController: UITableViewController {
 
-    var file : String?
-    var sightStore : SightStore!
+    var sightStore : [Sight] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        file = Bundle.main.path(forResource: "sights", ofType: "plist")
+        tableView.dataSource = self
+        tableView.delegate = self
+        let file = Bundle.main.path(forResource: "sights", ofType: "plist")
         let sights = NSArray(contentsOfFile: file!) as! [Dictionary<String, Any>]
-        
+        print(sights.count)
         for sight in sights{
-            sightStore.createItem(name: sight["name"]! as! String, latitude: sight["latitude"] as! Double, longitude: sight["longitude"] as! Double)
+            
+            sightStore.append(Sight(name: sight["name"] as! String, latitude: sight["longitude"] as! Double, longitude: sight["latitude"] as! Double))
         }
         
         
@@ -43,15 +44,19 @@ class SightsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sightStore.getSize()
+        return sightStore.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SightTableViewCell", for: indexPath) as! SightTableViewCell
+        let cell : SightTableViewCell = (tableView.dequeueReusableCell(withIdentifier: "SightTableViewCell", for: indexPath) as? SightTableViewCell)!
         
-        let sight = sightStore.allSights[indexPath.row]
-        cell.nameLabel.text = sight.name
+            let sight = sightStore[indexPath.row]
+            cell.nameLabel!.text = sight.name
+            cell.nameLabel.sizeToFit()
+        
+        
+        
         // Configure the cell...
 
         return cell
@@ -103,8 +108,9 @@ class SightsTableViewController: UITableViewController {
         switch segue.identifier{
         case "showSight"?:
             if let row = tableView.indexPathForSelectedRow?.row{
-                let sight = sightStore.allSights[row]
+                let sight = sightStore[row]
                 let sightDetailViewController = segue.destination as! SightDetailViewController
+                print(sight.name)
                 sightDetailViewController.sight = sight
             }
             

@@ -17,8 +17,12 @@ class SightDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        map.centerCoordinate = sight.placeMark.coordinate
-        image.image = sight.photo
+        let span = MKCoordinateSpan(latitudeDelta: 0.001, longitudeDelta: 0.001)
+        let region = MKCoordinateRegion(center: sight.placeMark.coordinate, span: span)
+        map.setRegion(region, animated: true)
+        map.sizeToFit()
+        //map.centerCoordinate = sight.placeMark.coordinate
+        //image.image = sight.photo
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
