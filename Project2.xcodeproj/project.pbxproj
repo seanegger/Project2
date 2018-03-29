@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5856E22E206CC9A2009092DE /* externalLinks.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5856E22D206CC9A2009092DE /* externalLinks.plist */; };
+		5856E230206CCAA3009092DE /* ExternalLinksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5856E22F206CCAA3009092DE /* ExternalLinksTableViewCell.swift */; };
+		5856E232206CCD5C009092DE /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5856E231206CCD5C009092DE /* Link.swift */; };
 		5876A68C206ACE6C00E0271B /* SightTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5876A68B206ACE6C00E0271B /* SightTableViewCell.swift */; };
 		5876A690206ACFC900E0271B /* Sight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5876A68F206ACFC900E0271B /* Sight.swift */; };
 		5876A692206AD2FC00E0271B /* sights.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5876A691206AD2FC00E0271B /* sights.plist */; };
@@ -24,6 +27,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5856E22D206CC9A2009092DE /* externalLinks.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = externalLinks.plist; path = "External Links/externalLinks.plist"; sourceTree = "<group>"; };
+		5856E22F206CCAA3009092DE /* ExternalLinksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExternalLinksTableViewCell.swift; path = "External Links/ExternalLinksTableViewCell.swift"; sourceTree = "<group>"; };
+		5856E231206CCD5C009092DE /* Link.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Link.swift; path = "External Links/Link.swift"; sourceTree = "<group>"; };
 		5876A68B206ACE6C00E0271B /* SightTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SightTableViewCell.swift; path = SightItems/SightTableViewCell.swift; sourceTree = "<group>"; };
 		5876A68F206ACFC900E0271B /* Sight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sight.swift; sourceTree = "<group>"; };
 		5876A691206AD2FC00E0271B /* sights.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = sights.plist; path = SightItems/sights.plist; sourceTree = "<group>"; };
@@ -87,10 +93,13 @@
 			children = (
 				7A2569BA206AC2860027F0B8 /* ViewControllers */,
 				7A54E757203F4A7D006724B6 /* AppDelegate.swift */,
+				5856E22F206CCAA3009092DE /* ExternalLinksTableViewCell.swift */,
 				7A54E759203F4A7D006724B6 /* ViewController.swift */,
+				5856E231206CCD5C009092DE /* Link.swift */,
 				5876A68B206ACE6C00E0271B /* SightTableViewCell.swift */,
 				5876A691206AD2FC00E0271B /* sights.plist */,
 				7A54E75B203F4A7D006724B6 /* Main.storyboard */,
+				5856E22D206CC9A2009092DE /* externalLinks.plist */,
 				7A54E75E203F4A7D006724B6 /* Assets.xcassets */,
 				7A54E760203F4A7D006724B6 /* LaunchScreen.storyboard */,
 				7A54E763203F4A7D006724B6 /* Info.plist */,
@@ -158,6 +167,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5856E22E206CC9A2009092DE /* externalLinks.plist in Resources */,
 				5876A692206AD2FC00E0271B /* sights.plist in Resources */,
 				7A54E762203F4A7D006724B6 /* LaunchScreen.storyboard in Resources */,
 				7A54E75F203F4A7D006724B6 /* Assets.xcassets in Resources */,
@@ -174,6 +184,8 @@
 			files = (
 				7A2569B9206AC2660027F0B8 /* TourTableViewController.swift in Sources */,
 				7A2569C0206AC3DA0027F0B8 /* LinksTableViewController.swift in Sources */,
+				5856E230206CCAA3009092DE /* ExternalLinksTableViewCell.swift in Sources */,
+				5856E232206CCD5C009092DE /* Link.swift in Sources */,
 				7A54E75A203F4A7D006724B6 /* ViewController.swift in Sources */,
 				5876A690206ACFC900E0271B /* Sight.swift in Sources */,
 				7A54E758203F4A7D006724B6 /* AppDelegate.swift in Sources */,
