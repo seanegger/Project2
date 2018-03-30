@@ -10,12 +10,9 @@ import UIKit
 
 class LinksTableViewController: UITableViewController {
 
-    var linkStore : [Link] = []
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -23,15 +20,6 @@ class LinksTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        let file = Bundle.main.path(forResource: "externalLinks", ofType: "plist")
-        
-        let links = NSArray(contentsOfFile: file!) as! [Dictionary<String, Any>]
-        for link in links{
-            linkStore.append(Link(name : link["name"] as! String, link : link["url"] as! String))
-        }
-    }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -41,27 +29,23 @@ class LinksTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 0
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return linkStore.count
+        return 0
     }
 
-    
+    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ExternalLinksTableViewCell", for : indexPath) as! ExternalLinksTableViewCell
-        let link = linkStore[indexPath.row]
-        cell.configure(nlink: link.link)
-        cell.nameLabel.text = link.name
-        cell.sizeToFit()
-        cell.button.setTitle("GO", for: .normal)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+
         // Configure the cell...
 
         return cell
     }
-    
+    */
 
     /*
     // Override to support conditional editing of the table view.

@@ -7,32 +7,17 @@
 //
 
 import UIKit
-import AVKit
 
 class TourTableViewController: UITableViewController {
-    
-    var tourStore : [Tour] = []
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.dataSource = self
-        tableView.delegate = self
-        
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        let file = Bundle.main.path(forResource: "tours", ofType: "plist")
-        let tours = NSArray(contentsOfFile: file!) as! [Dictionary<String, Any>]
-        
-        for tour in tours{
-            tourStore.append(Tour(type: tour["type"] as! String, name: tour["name"] as! String, file : tour["file"] as! String))
-        }
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,35 +29,23 @@ class TourTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 0
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return tourStore.count
+        return 0
     }
 
-    
+    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TourTableViewCell", for: indexPath) as! TourTableViewCell
-        let tour = tourStore[indexPath.row]
-        cell.nameLabel.text = tour.name
-        cell.file = tour.file
-        if tour.type == "mp3"
-        {
-            cell.typeLabel.text = "Audio"
-        }
-        else
-        {
-            cell.typeLabel.text = "Video"
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
         // Configure the cell...
-        cell.typeLabel.sizeToFit()
-        cell.nameLabel.sizeToFit()
+
         return cell
     }
-    
+    */
 
     /*
     // Override to support conditional editing of the table view.
@@ -109,28 +82,14 @@ class TourTableViewController: UITableViewController {
     }
     */
 
-    
+    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        switch segue.identifier{
-        case "play"?:
-            if let row = tableView.indexPathForSelectedRow?.row{
-                let tour = tourStore[row]
-                let av = segue.destination as! AVPlayerViewController
-                let name = Bundle.main.path(forResource: "../" + tour.file, ofType: tour.type)
-                let player = AVPlayer(url: URL(string: tour.file)!)
-                av.player = player
-                av.player?.play()
-            }
-        default:
-            preconditionFailure("Unexpected Segue Failure")
-            
-        }
     }
-    
+    */
 
 }
