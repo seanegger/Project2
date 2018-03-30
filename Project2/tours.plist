@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>name</key>
+		<string>Quick Tour of Burlington 2</string>
+		<key>type</key>
+		<string>mp3</string>
+		<key>file</key>
+		<string>htps://allthingsaudio.wikispaces.com/file/view/The%20Triumph%20Of%20Obvious.mp3/139236159/The%20Triumph%20Of%20Obvious.mp3</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Quick Tour of Burlington</string>
+		<key>type</key>
+		<string>mp4</string>
+		<key>file</key>
+		<string>https://download.ted.com/talks/JohnMcWhorter_2016-64k.mp4</string>
+	</dict>
+</array>
+</plist>
