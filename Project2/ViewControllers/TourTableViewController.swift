@@ -17,6 +17,15 @@ class TourTableViewController: UITableViewController {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
+        
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         let file = Bundle.main.path(forResource: "tours", ofType: "plist")
         let tours = NSArray(contentsOfFile: file!) as! [Dictionary<String, Any>]
         
@@ -24,11 +33,6 @@ class TourTableViewController: UITableViewController {
             tourStore.append(Tour(type: tour["type"] as! String, name: tour["name"] as! String, file : tour["file"] as! String))
         }
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     override func didReceiveMemoryWarning() {
@@ -64,7 +68,8 @@ class TourTableViewController: UITableViewController {
         }
 
         // Configure the cell...
-
+        cell.typeLabel.sizeToFit()
+        cell.nameLabel.sizeToFit()
         return cell
     }
     
@@ -116,8 +121,8 @@ class TourTableViewController: UITableViewController {
             if let row = tableView.indexPathForSelectedRow?.row{
                 let tour = tourStore[row]
                 let av = segue.destination as! AVPlayerViewController
-                let name = tour.file + tour.type
-                let player = AVPlayer.init(url: URL(string : name)!)
+                let name = Bundle.main.path(forResource: "../" + tour.file, ofType: tour.type)
+                let player = AVPlayer(url: URL(string: tour.file)!)
                 av.player = player
                 av.player?.play()
             }

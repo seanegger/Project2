@@ -16,12 +16,7 @@ class SightsTableViewController: UITableViewController {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
-        let file = Bundle.main.path(forResource: "sights", ofType: "plist")
-        let sights = NSArray(contentsOfFile: file!) as! [Dictionary<String, Any>]
-        for sight in sights{
-            
-            sightStore.append(Sight(name: sight["name"] as! String, latitude: sight["longitude"] as! Double, longitude: sight["latitude"] as! Double))
-        }
+        
         
         
         // Uncomment the following line to preserve selection between presentations
@@ -31,6 +26,16 @@ class SightsTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let file = Bundle.main.path(forResource: "sights", ofType: "plist")
+        let sights = NSArray(contentsOfFile: file!) as! [Dictionary<String, Any>]
+        for sight in sights{
+            
+            sightStore.append(Sight(name: sight["name"] as! String, latitude: sight["longitude"] as! Double, longitude: sight["latitude"] as! Double, photo : sight["photo"] as! String, favorite : sight["favorite"] as! Bool))
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -109,7 +114,6 @@ class SightsTableViewController: UITableViewController {
             if let row = tableView.indexPathForSelectedRow?.row{
                 let sight = sightStore[row]
                 let sightDetailViewController = segue.destination as! SightDetailViewController
-                print(sight.name)
                 sightDetailViewController.sight = sight
             }
             

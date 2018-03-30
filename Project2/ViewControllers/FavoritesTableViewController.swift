@@ -10,23 +10,36 @@ import UIKit
 
 class FavoritesTableViewController: UITableViewController {
 
-    
+    var favorites : NSMutableArray = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let file = Bundle.main.path(forResource: "sights", ofType: "plist")
+        let sights = NSArray(contentsOfFile: file!) as! [Dictionary<String, Any>]
+        for sight in sights{
+            if (sight["favorite"] as! Bool) == true{ 
+                self.favorites.add(Sight(name: sight["name"] as! String, latitude: sight["longitude"] as! Double, longitude: sight["latitude"] as! Double, photo : sight["photo"] as! String, favorite : sight["favorite"] as! Bool))
+            }
+        }
+        
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
+
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -36,18 +49,31 @@ class FavoritesTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        print(favorites.count)
+        return favorites.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FavoriteViewCell", for: indexPath) as! FavoriteViewCell
+        let obj = self.favorites.object(at: indexPath.row)
+        if obj is Sight {
+            let temp : Sight = obj as! Sight
+            cell.nameLabel.text = temp.name
+        }
+        else if obj is Tour {
+            let temp : Tour = obj as! Tour
+            cell.nameLabel.text = temp.name
+        }
+        else if obj is Note {
+            let temp : Note = obj as! Note
+            cell.nameLabel.text = temp.text
+        }
         // Configure the cell...
-
+        cell.nameLabel.sizeToFit()
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -57,24 +83,25 @@ class FavoritesTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
+            
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+            self.favorites.remove(self.favorites.object(at: indexPath.row))
+        }
     }
-    */
+    
 
-    /*
+    
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+        let temp = favorites.object(at: fromIndexPath.row)
+        favorites.replaceObject(at: fromIndexPath.row, with: favorites.object(at: to.row))
+        favorites.replaceObject(at: to.row, with: temp)
     }
-    */
+    
 
     /*
     // Override to support conditional rearranging of the table view.

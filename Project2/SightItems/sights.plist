@@ -3,6 +3,10 @@
 <plist version="1.0">
 <array>
 	<dict>
+		<key>favorite</key>
+		<true/>
+		<key>photo</key>
+		<string>echo.jpg</string>
 		<key>name</key>
 		<string>ECHO, Leahy Center for Lake Champlain</string>
 		<key>longitude</key>
@@ -11,6 +15,10 @@
 		<real>-73.22123809999999</real>
 	</dict>
 	<dict>
+		<key>favorite</key>
+		<false/>
+		<key>photo</key>
+		<string>church.jpg</string>
 		<key>name</key>
 		<string>Unitarian Church</string>
 		<key>longitude</key>
@@ -19,6 +27,10 @@
 		<real>-73.21300069999999</real>
 	</dict>
 	<dict>
+		<key>favorite</key>
+		<false/>
+		<key>photo</key>
+		<string>bnj.jpg</string>
 		<key>name</key>
 		<string>Ben and Jerry&apos;s</string>
 		<key>longitude</key>

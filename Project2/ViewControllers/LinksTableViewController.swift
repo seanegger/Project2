@@ -15,12 +15,7 @@ class LinksTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let file = Bundle.main.path(forResource: "externalLinks", ofType: "plist")
-
-        let links = NSArray(contentsOfFile: file!) as! [Dictionary<String, Any>]
-        for link in links{
-            linkStore.append(Link(name : link["name"] as! String, link : link["url"] as! String))
-        }
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -28,6 +23,15 @@ class LinksTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        let file = Bundle.main.path(forResource: "externalLinks", ofType: "plist")
+        
+        let links = NSArray(contentsOfFile: file!) as! [Dictionary<String, Any>]
+        for link in links{
+            linkStore.append(Link(name : link["name"] as! String, link : link["url"] as! String))
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
