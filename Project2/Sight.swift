@@ -31,7 +31,13 @@ class Sight : NSObject, NSCoding{
     
     func encode(with aCoder: NSCoder) {
         aCoder.encode(name, forKey: propertyKey.name)
+        aCoder.encode(placeMark.coordinate.latitude, forKey: propertyKey.latitude)
+        aCoder.encode(placeMark.coordinate.longitude, forKey: propertyKey.longitude)
+
+        aCoder.encode(photo, forKey: propertyKey.photo)
+
         aCoder.encode(favorite, forKey: propertyKey.favorite)
+
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
