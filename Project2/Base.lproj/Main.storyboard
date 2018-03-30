@@ -6,7 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -142,10 +142,19 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZNo-6A-xHf">
+                                            <rect key="frame" x="313" y="6" width="46" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Button"/>
+                                            <connections>
+                                                <action selector="favorite:" destination="wyb-ub-ESm" eventType="touchUpInside" id="elg-01-AAU"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <accessibility key="accessibilityConfiguration" identifier="TourTableViewCell"/>
                                 <connections>
+                                    <outlet property="favoriteButton" destination="ZNo-6A-xHf" id="BFB-GS-Anj"/>
                                     <outlet property="nameLabel" destination="PAN-SB-3uO" id="TId-kK-Nf7"/>
                                     <outlet property="typeLabel" destination="BE2-qF-4bM" id="bzx-nv-1fo"/>
                                     <segue destination="Nbn-Cj-dF3" kind="show" identifier="play" id="8hV-ZF-SOJ"/>

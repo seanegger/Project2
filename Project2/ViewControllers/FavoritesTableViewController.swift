@@ -11,6 +11,7 @@ import UIKit
 class FavoritesTableViewController: UITableViewController {
 
     var sightFavorites : [Sight] = []
+    var tourFavorites : [Tour] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +29,14 @@ class FavoritesTableViewController: UITableViewController {
         let sightdi = DataInterface(fileName: "SightFavorites")
         if let data = sightdi.loadSightData() as [Sight]? {
             self.sightFavorites = data
+        }
+        else
+        {
+            print("no")
+        }
+        let tourdi = DataInterface(fileName: "TourFavorites")
+        if let data = tourdi.loadTourData() as [Tour]? {
+            self.tourFavorites = data
         }
         
         

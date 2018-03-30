@@ -70,6 +70,7 @@ class TourTableViewController: UITableViewController {
         // Configure the cell...
         cell.typeLabel.sizeToFit()
         cell.nameLabel.sizeToFit()
+        cell.tour = tour
         return cell
     }
     
