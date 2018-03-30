@@ -12,6 +12,7 @@ class FavoritesTableViewController: UITableViewController {
 
     var sightFavorites : [Sight] = []
     var tourFavorites : [Tour] = []
+    var all : NSMutableArray = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +39,17 @@ class FavoritesTableViewController: UITableViewController {
         if let data = tourdi.loadTourData() as [Tour]? {
             self.tourFavorites = data
         }
+        else
+        {
+            print("no")
+        }
+        
+        for i in sightFavorites{
+            all.add(i)
+        }
+        for i in tourFavorites{
+            all.add(i)
+        }
         
         
     }
@@ -57,15 +69,14 @@ class FavoritesTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.sightFavorites.count
+        return all.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FavoriteViewCell", for: indexPath) as! FavoriteViewCell
-        let obj = self.sightFavorites[indexPath.row]
-        cell.nameLabel.text = obj.name
-        /*if obj is Sight {
+        let obj = all.object(at: indexPath.row)
+        if obj is Sight {
             let temp : Sight = obj as! Sight
             cell.nameLabel.text = temp.name
         }
@@ -76,7 +87,7 @@ class FavoritesTableViewController: UITableViewController {
         else if obj is Note {
             let temp : Note = obj as! Note
             cell.nameLabel.text = temp.text
-        }*/
+        }
         // Configure the cell...
         cell.nameLabel.sizeToFit()
         return cell

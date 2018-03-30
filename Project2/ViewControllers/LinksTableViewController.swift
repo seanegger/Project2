@@ -24,6 +24,7 @@ class LinksTableViewController: UITableViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
+       // functionality to bring info for links from plists
         let file = Bundle.main.path(forResource: "externalLinks", ofType: "plist")
         
         let links = NSArray(contentsOfFile: file!) as! [Dictionary<String, Any>]

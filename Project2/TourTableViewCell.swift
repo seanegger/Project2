@@ -20,7 +20,7 @@ class TourTableViewCell : UITableViewCell{
     var file : String?
     override init(style: UITableViewCellStyle, reuseIdentifier: String!){
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-    
+    // pull info from archives using data interface
         let di : DataInterface = DataInterface(fileName :"TourFavorites")
         if let data = di.loadTourData() as [Tour]? {
             for d in data{
@@ -43,7 +43,7 @@ class TourTableViewCell : UITableViewCell{
         }
     }
     
-    
+    //configure button text
     func configure(file : String){
         self.file = file
         button.setTitle("Go", for: .normal)
@@ -58,6 +58,7 @@ class TourTableViewCell : UITableViewCell{
         
     }
     
+    //favorite button fucnctionality
     @IBAction func favorite(_ sender: Any) {
         tour?.favorite = !(tour?.favorite)!
         // get favorited sights data

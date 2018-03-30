@@ -58,6 +58,8 @@ class TourTableViewController: UITableViewController {
         let tour = tourStore[indexPath.row]
         cell.nameLabel.text = tour.name
         cell.file = tour.file
+        
+        // checks file type
         if tour.type == "mp3"
         {
             cell.typeLabel.text = "Audio"
@@ -66,8 +68,17 @@ class TourTableViewController: UITableViewController {
         {
             cell.typeLabel.text = "Video"
         }
+        
+        //favoriting set
+        if tour.favorite{
+            cell.favoriteButton.setTitle("Unfavorite", for: .normal)
+        }
+        else{
+            cell.favoriteButton.setTitle("Favorite", for: .normal)
 
+        }
         // Configure the cell...
+        cell.favoriteButton.sizeToFit()
         cell.typeLabel.sizeToFit()
         cell.nameLabel.sizeToFit()
         cell.tour = tour
@@ -119,6 +130,8 @@ class TourTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
         switch segue.identifier{
         case "play"?:
+            
+            // segue into av player to play audio or video
             if let row = tableView.indexPathForSelectedRow?.row{
                 let tour = tourStore[row]
                 let av = segue.destination as! AVPlayerViewController

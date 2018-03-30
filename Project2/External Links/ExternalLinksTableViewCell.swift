@@ -32,6 +32,8 @@ class ExternalLinksTableViewCell : UITableViewCell{
         super.awakeFromNib()
         
     }
+    
+    // function brings you to provided site
     @IBAction func goToSite(_ sender: UIButton) {
         let nurl = NSURL(string: self.link!)
         UIApplication.shared.open(nurl! as URL, options: [ :], completionHandler: nil)

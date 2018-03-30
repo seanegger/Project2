@@ -74,10 +74,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jVI-Tu-YxE">
-                                <rect key="frame" x="50" y="108" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="b1R-ek-KUG">
                                 <rect key="frame" x="16" y="350" width="343" height="246"/>
                                 <constraints>
@@ -88,17 +84,28 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oYb-rg-h65">
                                 <rect key="frame" x="313" y="73" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" red="0.065580659220000004" green="0.70737532380000001" blue="0.21357032970000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
                                 <connections>
                                     <action selector="favoriteThis:" destination="Hpm-HP-uOC" eventType="touchUpInside" id="aSj-lw-Acf"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jVI-Tu-YxE">
+                                <rect key="frame" x="67" y="141" width="240" height="128"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.22216802835464478" green="0.97579056024551392" blue="0.042434908449649811" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="jVI-Tu-YxE" firstAttribute="leading" secondItem="L10-uJ-2WT" secondAttribute="leading" constant="67" id="F8Q-j8-Omq"/>
+                            <constraint firstItem="jVI-Tu-YxE" firstAttribute="top" secondItem="L10-uJ-2WT" secondAttribute="top" constant="77" id="Fpu-5n-JVF"/>
                             <constraint firstItem="b1R-ek-KUG" firstAttribute="centerX" secondItem="L10-uJ-2WT" secondAttribute="centerX" id="Hay-CS-Yat"/>
+                            <constraint firstItem="b1R-ek-KUG" firstAttribute="top" secondItem="jVI-Tu-YxE" secondAttribute="bottom" constant="81" id="NNg-0A-xaM"/>
+                            <constraint firstItem="jVI-Tu-YxE" firstAttribute="centerX" secondItem="L10-uJ-2WT" secondAttribute="centerX" id="Oqo-sL-lM8"/>
                             <constraint firstItem="L10-uJ-2WT" firstAttribute="bottom" secondItem="b1R-ek-KUG" secondAttribute="bottom" constant="22" id="ZOo-BU-Q9S"/>
                             <constraint firstItem="b1R-ek-KUG" firstAttribute="top" secondItem="L10-uJ-2WT" secondAttribute="top" constant="286" id="eNM-Iv-eQq"/>
+                            <constraint firstItem="jVI-Tu-YxE" firstAttribute="width" secondItem="fKN-ts-DNT" secondAttribute="height" multiplier="240:667" id="p6y-0A-ysf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="L10-uJ-2WT"/>
                     </view>
