@@ -10,15 +10,9 @@ import UIKit
 
 class SightsTableViewController: UITableViewController {
 
-    var sightStore : [Sight] = []
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.dataSource = self
-        tableView.delegate = self
-        
-        
-        
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -26,16 +20,6 @@ class SightsTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
-    
-    override func viewWillAppear(_ animated: Bool) {
-        let file = Bundle.main.path(forResource: "sights", ofType: "plist")
-        let sights = NSArray(contentsOfFile: file!) as! [Dictionary<String, Any>]
-        for sight in sights{
-            
-            sightStore.append(Sight(name: sight["name"] as! String, latitude: sight["longitude"] as! Double, longitude: sight["latitude"] as! Double, photo : sight["photo"] as! String, favorite : sight["favorite"] as! Bool))
-        }
-    }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -44,28 +28,24 @@ class SightsTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        // #warning Incomplete implementation, return the number of sections
+        return 0
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sightStore.count
+        // #warning Incomplete implementation, return the number of rows
+        return 0
     }
 
-    
+    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell : SightTableViewCell = (tableView.dequeueReusableCell(withIdentifier: "SightTableViewCell", for: indexPath) as? SightTableViewCell)!
-        
-            let sight = sightStore[indexPath.row]
-            cell.nameLabel!.text = sight.name
-            cell.nameLabel.sizeToFit()
-        
-        
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+
         // Configure the cell...
 
         return cell
     }
-    
+    */
 
     /*
     // Override to support conditional editing of the table view.
@@ -102,25 +82,14 @@ class SightsTableViewController: UITableViewController {
     }
     */
 
-
+    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        switch segue.identifier{
-        case "showSight"?:
-            if let row = tableView.indexPathForSelectedRow?.row{
-                let sight = sightStore[row]
-                let sightDetailViewController = segue.destination as! SightDetailViewController
-                sightDetailViewController.sight = sight
-            }
-            
-        default:
-            preconditionFailure("Unexpected Segue Failure")
-        }
     }
-    
+    */
 
 }
