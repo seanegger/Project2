@@ -14,26 +14,8 @@ class NotesTableViewController: UITableViewController {
     //MARK: Instance Variables
     var noteList: [Note] = []
     let dataInterface = DataInterface(fileName: "Notes")
-
-
-    //MARK: Storyboard Connections
-    @IBAction func unwindFromNoteDetail(sender: UIStoryboardSegue)
-    {
-        if let sourceViewController = sender.source as? NoteDetailViewController, let note = sourceViewController.note
-        {
-            if let selectedIndexPath = tableView.indexPathForSelectedRow
-            {
-                //update existing note
-                noteList[selectedIndexPath.row] = note
-                tableView.reloadData()
-            }
-            let newIndexPath = IndexPath(row: noteList.count, section:0)
-            noteList.append(note)
-            tableView.insertRows(at: [newIndexPath], with: .automatic)
-        }
-        //save to file
-        dataInterface.saveData(data: noteList)
-    }
+    
+    
     
     
     override func viewDidLoad() {
@@ -49,6 +31,7 @@ class NotesTableViewController: UITableViewController {
         {
             noteList = loadNoteList
         }
+        navigationItem.leftBarButtonItem = editButtonItem
     }
 
     override func didReceiveMemoryWarning() {
@@ -69,27 +52,20 @@ class NotesTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "noteCell", for: indexPath) as? NotesTableViewCell
 
         // Configure the cell...
         //load the thumbnail
-        let thumbnail: UIImage = noteList[indexPath.row].thumbnail!
-        cell.imageView?.image = thumbnail
-        //load the first word of text
-        let noteText = noteList[indexPath.row].text
-        let indexOfFirstSpace = noteText.index(of: " ") ?? noteText.endIndex
-        cell.textLabel?.text = String(noteText[...indexOfFirstSpace])
-        return cell
+        if let thumbnail: UIImage = noteList[indexPath.row].thumbnail
+        {
+            cell?.noteThumbnail.image = thumbnail
+        }
+        cell?.noteTitle.text = noteList[indexPath.row].text
+        return cell!
     }
  
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
+    
 
     
     // Override to support editing the table view.
@@ -99,13 +75,11 @@ class NotesTableViewController: UITableViewController {
             noteList.remove(at: indexPath.row)
             dataInterface.saveData(data: noteList)
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
  
 
-    
+
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
         if fromIndexPath != to
@@ -113,15 +87,30 @@ class NotesTableViewController: UITableViewController {
             let movedNote = noteList[fromIndexPath.row]
             noteList.remove(at: fromIndexPath.row)
             noteList.insert(movedNote, at: to.row)
+            dataInterface.saveData(data: noteList)
         }
     }
     
-    // Pass the right note to the detail view controller
+    
+    
+    /*
+     Handles list cells being selected. Performs the editNote segue on selection
+    */
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "editNote", sender: noteList[indexPath.row])
     }
     
+    
+    
+    //MARK: Segues
+    /*
+     Triggered when user triggers segue.
+     Two cases: editing a note, creating a new note
+     New note creates a new note and sends it to the destiantion view controller
+     Editing a note gets the note to edit and sends it to the destination view controller
+    */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
         //if adding a new note
         if segue.identifier == "newNote"
         {
@@ -140,6 +129,21 @@ class NotesTableViewController: UITableViewController {
             destinationVC.note = sender as? Note
         }
     }
+    
+    
+    
+    
+    /*
+     Triggered when a user hits save in the NoteDetaiView.
+     Updadates the note list and saves to file
+    */
+    @IBAction func saveNote(sender: UIStoryboardSegue)
+    {
+        //save to file
+        dataInterface.saveData(data: noteList)
+        // reload table view
+        tableView.reloadData()
+    }
  
 
     /*
@@ -149,6 +153,14 @@ class NotesTableViewController: UITableViewController {
         return true
     }
     */
+    
+    /*
+     // Override to support conditional editing of the table view.
+     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+     // Return false if you do not want the specified item to be editable.
+     return true
+     }
+     */
 
     /*
     // MARK: - Navigation

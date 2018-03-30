@@ -12,12 +12,12 @@ import UIKit
 class Note: NSObject, NSCoding
 {
     
-    var text: String = ""
+    var text: String? = "Enter text here..."
     var thumbnail: UIImage? = nil
     var identifier: Int?
 
     
-    init(text: String, thumbnail: UIImage) {
+    init(text: String?, thumbnail: UIImage?) {
         self.text = text
         self.thumbnail = thumbnail
     }
@@ -34,8 +34,7 @@ class Note: NSObject, NSCoding
     required convenience init?(coder aDecoder: NSCoder) {
         let text = aDecoder.decodeObject(forKey: propertyKey.text) as? String
         let thumbnail = aDecoder.decodeObject(forKey: propertyKey.thumbnail) as? UIImage
-        
-        self.init(text: text!, thumbnail: thumbnail!)
+        self.init(text: text, thumbnail: thumbnail)
     }
     
 

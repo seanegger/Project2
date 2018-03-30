@@ -37,8 +37,13 @@ class NoteDetailViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        //
+        super.viewWillAppear(animated)
+        if let noteText = note?.text
+        {
+            textBox.text = noteText
+        }
     }
+    
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -48,9 +53,9 @@ class NoteDetailViewController: UIViewController {
             note?.text = newText
         }
         //save new thumbnail
-        if let newTumbnail = thumbnail.image
+        if let newThumbnail = thumbnail.image
         {
-            note?.thumbnail = newTumbnail
+            note?.thumbnail = newThumbnail
         }
     }
     

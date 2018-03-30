@@ -31,7 +31,14 @@ class DataInterface
     */
     func saveData(data: Note)
     {
-        NSKeyedArchiver.archiveRootObject(data, toFile: getPath())
+        if NSKeyedArchiver.archiveRootObject(data, toFile: getPath())
+        {
+            print("Data Sucesfully Saved")
+        }
+        else
+        {
+            print("RUNTIME_EXCEPTION::Data not succesfully saved")
+        }
     }
     
     /*
@@ -39,7 +46,14 @@ class DataInterface
      */
     func saveData(data: [Note])
     {
-        NSKeyedArchiver.archiveRootObject(data, toFile: getPath())
+        if NSKeyedArchiver.archiveRootObject(data, toFile: getPath())
+        {
+            print("Data Sucesfully Saved")
+        }
+        else
+        {
+            print("RUNTIME_EXCEPTION::Data not succesfully saved")
+        }
     }
     
     /*
