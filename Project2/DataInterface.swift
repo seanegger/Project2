@@ -27,9 +27,9 @@ class DataInterface
     }
     
     /*
-     Saves data to an archive. This overload saves a note
-    */
-    func saveData(data: Note)
+     Saves data to an archive. This overload saves a list of notes
+     */
+    func saveData(data: [Note])
     {
         if NSKeyedArchiver.archiveRootObject(data, toFile: getPath())
         {
@@ -42,9 +42,9 @@ class DataInterface
     }
     
     /*
-     Saves data to an archive. This overload saves a list of notes
+     Saves data to an archive. This overload saves any type
      */
-    func saveData(data: [Note])
+    func saveData(data: Any)
     {
         if NSKeyedArchiver.archiveRootObject(data, toFile: getPath())
         {
@@ -61,7 +61,17 @@ class DataInterface
     */
     func loadData() -> [Note]?
     {
-        return NSKeyedUnarchiver.unarchiveObject(withFile: getPath()) as? [Note]
+        let notes = NSKeyedUnarchiver.unarchiveObject(withFile: getPath()) as? [Note]
+        return notes
+    }
+    
+    /*
+     Loads data from archive. This retrieves a list of notes
+     */
+    func loadData() -> Any
+    {
+        let data = NSKeyedUnarchiver.unarchiveObject(withFile: getPath()) as? [Note]
+        return data
     }
     
 }

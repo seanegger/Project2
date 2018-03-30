@@ -185,13 +185,14 @@
                     <navigationItem key="navigationItem" id="vPU-VH-ODU">
                         <barButtonItem key="rightBarButtonItem" title="Save" id="eME-OS-2NQ">
                             <connections>
-                                <segue destination="D9w-xu-cji" kind="unwind" unwindAction="saveNoteWithSender:" id="YMS-Eh-SP1"/>
+                                <action selector="saveNote:" destination="h31-sj-LkP" id="OXr-pH-2Ua"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="textBox" destination="t10-Yd-n2l" id="t7t-Lm-QcZ"/>
                         <outlet property="thumbnail" destination="6i3-ow-4IY" id="RnO-Hg-kus"/>
+                        <segue destination="D9w-xu-cji" kind="unwind" identifier="saveNote" unwindAction="saveNoteWithSender:" id="yfc-dc-tae"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tJ5-18-SFv" userLabel="First Responder" sceneMemberID="firstResponder"/>
