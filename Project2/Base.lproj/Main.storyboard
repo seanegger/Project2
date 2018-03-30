@@ -166,11 +166,11 @@
                                 </items>
                             </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V9P-cJ-0Dv">
-                                <rect key="frame" x="188" y="215" width="187" height="30"/>
+                                <rect key="frame" x="188" y="215" width="171" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.065580659222580162" green="0.70737532383419688" blue="0.21357032970752393" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="Select Thumbnail">
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="Select Image">
                                     <color key="titleColor" red="0.96558807795379809" green="0.99271317818400995" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -298,7 +298,8 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dsX-4z-WLC" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Sights" image="binoculars-300px" id="CXK-V4-aHC"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pKS-wn-rqB">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="pKS-wn-rqB">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -317,7 +318,8 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pZJ-kn-xUL" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Tours" image="camera-icon" id="TX7-Nk-f68"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7og-se-o1m">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="7og-se-o1m">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -356,7 +358,8 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="miK-yv-Y12" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Favorites" image="heart-icon" id="gYm-N8-YV5"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="CNL-0l-KLa">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="CNL-0l-KLa">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -375,7 +378,8 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Tia-7u-oWI" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Links" image="chain-icon" id="eNF-VX-cnn"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="VF6-gA-lKQ">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="VF6-gA-lKQ">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

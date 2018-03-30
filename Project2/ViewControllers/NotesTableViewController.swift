@@ -27,13 +27,16 @@ class NotesTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         //load the saved notes
-        noteList = dataInterface.loadData() as! [Note]
+        if let loadedNotes = dataInterface.loadNoteData()
+        {
+            noteList = loadedNotes
+        }
         navigationItem.leftBarButtonItem = editButtonItem
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        // placed here to ensure if a note is not saved but created it will still show up
+        // placed here to ensure if a note is not saved but created it will still show 
         tableView.reloadData()
     }
 
