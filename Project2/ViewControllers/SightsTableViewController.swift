@@ -28,11 +28,13 @@ class SightsTableViewController: UITableViewController {
 
     
     override func viewWillAppear(_ animated: Bool) {
+        
+      
         let file = Bundle.main.path(forResource: "sights", ofType: "plist")
         let sights = NSArray(contentsOfFile: file!) as! [Dictionary<String, Any>]
         for sight in sights{
             
-            sightStore.append(Sight(name: sight["name"] as! String, latitude: sight["longitude"] as! Double, longitude: sight["latitude"] as! Double, photo : sight["photo"] as! String, favorite : sight["favorite"] as! Bool))
+            sightStore.append(Sight(name: sight["name"] as! String, latitude: sight["longitude"] as! Double, longitude: sight["latitude"] as! Double, photo : sight["photo"] as! String))
         }
     }
     
@@ -115,6 +117,7 @@ class SightsTableViewController: UITableViewController {
                 let sight = sightStore[row]
                 let sightDetailViewController = segue.destination as! SightDetailViewController
                 sightDetailViewController.sight = sight
+
             }
             
         default:

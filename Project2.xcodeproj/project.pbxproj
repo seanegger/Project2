@@ -48,7 +48,6 @@
 		5856ED52206D7F2B00779725 /* Tour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tour.swift; sourceTree = "<group>"; };
 		5856ED56206D859400779725 /* tours.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = tours.plist; sourceTree = "<group>"; };
 		5856ED58206D883900779725 /* TourTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourTableViewCell.swift; sourceTree = "<group>"; };
-		5856ED5B206D905400779725 /* goat.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = goat.mp4; sourceTree = "<group>"; };
 		5876A68B206ACE6C00E0271B /* SightTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SightTableViewCell.swift; path = SightItems/SightTableViewCell.swift; sourceTree = "<group>"; };
 		5876A68F206ACFC900E0271B /* Sight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sight.swift; sourceTree = "<group>"; };
 		5876A691206AD2FC00E0271B /* sights.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = sights.plist; path = SightItems/sights.plist; sourceTree = "<group>"; };
@@ -83,7 +82,6 @@
 		7A2569BA206AC2860027F0B8 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				5856ED5B206D905400779725 /* goat.mp4 */,
 				7A2569B4206AC2190027F0B8 /* SightsTableViewController.swift */,
 				7A2569B6206AC24C0027F0B8 /* SightDetailViewController.swift */,
 				7A2569B8206AC2660027F0B8 /* TourTableViewController.swift */,

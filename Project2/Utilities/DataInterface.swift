@@ -42,6 +42,18 @@ class DataInterface
         }
     }
     
+    func saveSightData(data: [Sight]?)
+    {
+        if NSKeyedArchiver.archiveRootObject(data, toFile: getPath())
+        {
+            print("Data Sucesfully Saved")
+        }
+        else
+        {
+            print("RUNTIME_EXCEPTION::Data not succesfully saved")
+        }
+    }
+    
     /*
      Loads data from archive. This retrieves a list of notes
      */
@@ -57,6 +69,12 @@ class DataInterface
     func loadNoteData() -> [Note]?
     {
         let data = NSKeyedUnarchiver.unarchiveObject(withFile: getPath()) as? [Note]
+        return data
+    }
+    
+    func loadSightData() -> [Sight]?
+    {
+        let data = NSKeyedUnarchiver.unarchiveObject(withFile: getPath()) as? [Sight]
         return data
     }
     

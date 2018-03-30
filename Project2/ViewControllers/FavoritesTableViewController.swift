@@ -10,7 +10,7 @@ import UIKit
 
 class FavoritesTableViewController: UITableViewController {
 
-    var favorites : NSMutableArray = []
+    var sightFavorites : [Sight] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,13 +24,12 @@ class FavoritesTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        let file = Bundle.main.path(forResource: "sights", ofType: "plist")
-        let sights = NSArray(contentsOfFile: file!) as! [Dictionary<String, Any>]
-        for sight in sights{
-            if (sight["favorite"] as! Bool) == true{ 
-                self.favorites.add(Sight(name: sight["name"] as! String, latitude: sight["longitude"] as! Double, longitude: sight["latitude"] as! Double, photo : sight["photo"] as! String, favorite : sight["favorite"] as! Bool))
-            }
+        super.viewWillAppear(animated)
+        let sightdi = DataInterface(fileName: "SightFavorites")
+        if let data = sightdi.loadSightData() as [Sight]? {
+            self.sightFavorites = data
         }
+        
         
     }
     override func didReceiveMemoryWarning() {
@@ -49,15 +48,15 @@ class FavoritesTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        print(favorites.count)
-        return favorites.count
+        return self.sightFavorites.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FavoriteViewCell", for: indexPath) as! FavoriteViewCell
-        let obj = self.favorites.object(at: indexPath.row)
-        if obj is Sight {
+        let obj = self.sightFavorites[indexPath.row]
+        cell.nameLabel.text = obj.name
+        /*if obj is Sight {
             let temp : Sight = obj as! Sight
             cell.nameLabel.text = temp.name
         }
@@ -68,20 +67,20 @@ class FavoritesTableViewController: UITableViewController {
         else if obj is Note {
             let temp : Note = obj as! Note
             cell.nameLabel.text = temp.text
-        }
+        }*/
         // Configure the cell...
         cell.nameLabel.sizeToFit()
         return cell
     }
     
 
-    /*
+    
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
+    
 
     
     // Override to support editing the table view.
@@ -89,7 +88,7 @@ class FavoritesTableViewController: UITableViewController {
         if editingStyle == .delete {
             
             tableView.deleteRows(at: [indexPath], with: .fade)
-            self.favorites.remove(self.favorites.object(at: indexPath.row))
+            self.sightFavorites.remove(at: indexPath.row)
         }
     }
     
@@ -97,9 +96,10 @@ class FavoritesTableViewController: UITableViewController {
     
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-        let temp = favorites.object(at: fromIndexPath.row)
-        favorites.replaceObject(at: fromIndexPath.row, with: favorites.object(at: to.row))
-        favorites.replaceObject(at: to.row, with: temp)
+        let temp = sightFavorites[fromIndexPath.row]
+        sightFavorites[fromIndexPath.row] = sightFavorites[to.row]
+        sightFavorites[to.row] = temp
+        
     }
     
 
