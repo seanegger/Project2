@@ -10,7 +10,6 @@
 		5843162D206DC9F7000A110B /* echo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5843162A206DC9F7000A110B /* echo.jpg */; };
 		5843162E206DC9F7000A110B /* bnj.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5843162B206DC9F7000A110B /* bnj.jpg */; };
 		5843162F206DC9F7000A110B /* church.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5843162C206DC9F7000A110B /* church.jpg */; };
-		58431633206DD180000A110B /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58431632206DD180000A110B /* Note.swift */; };
 		58431635206DE131000A110B /* FavoriteViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58431634206DE131000A110B /* FavoriteViewCell.swift */; };
 		5856E22E206CC9A2009092DE /* externalLinks.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5856E22D206CC9A2009092DE /* externalLinks.plist */; };
 		5856E230206CCAA3009092DE /* ExternalLinksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5856E22F206CCAA3009092DE /* ExternalLinksTableViewCell.swift */; };
@@ -27,7 +26,6 @@
 		7A2569BC206AC3200027F0B8 /* NotesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2569BB206AC3200027F0B8 /* NotesTableViewController.swift */; };
 		7A2569BE206AC3CA0027F0B8 /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2569BD206AC3CA0027F0B8 /* FavoritesTableViewController.swift */; };
 		7A2569C0206AC3DA0027F0B8 /* LinksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2569BF206AC3DA0027F0B8 /* LinksTableViewController.swift */; };
-		7A2569C2206ADD610027F0B8 /* NoteDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2569C1206ADD610027F0B8 /* NoteDetailViewController.swift */; };
 		7A2569C4206ADE370027F0B8 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2569C3206ADE370027F0B8 /* Note.swift */; };
 		7A54E758203F4A7D006724B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A54E757203F4A7D006724B6 /* AppDelegate.swift */; };
 		7A54E75D203F4A7D006724B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A54E75B203F4A7D006724B6 /* Main.storyboard */; };
@@ -41,7 +39,6 @@
 		5843162A206DC9F7000A110B /* echo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = echo.jpg; sourceTree = "<group>"; };
 		5843162B206DC9F7000A110B /* bnj.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bnj.jpg; sourceTree = "<group>"; };
 		5843162C206DC9F7000A110B /* church.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = church.jpg; sourceTree = "<group>"; };
-		58431632206DD180000A110B /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		58431634206DE131000A110B /* FavoriteViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewCell.swift; sourceTree = "<group>"; };
 		5856E22D206CC9A2009092DE /* externalLinks.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = externalLinks.plist; path = "External Links/externalLinks.plist"; sourceTree = "<group>"; };
 		5856E22F206CCAA3009092DE /* ExternalLinksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExternalLinksTableViewCell.swift; path = "External Links/ExternalLinksTableViewCell.swift"; sourceTree = "<group>"; };
@@ -129,18 +126,14 @@
 				7A2569C5206ADF050027F0B8 /* CustomDataTypes */,
 				7A2569BA206AC2860027F0B8 /* ViewControllers */,
 				7A54E757203F4A7D006724B6 /* AppDelegate.swift */,
-
 				5856ED58206D883900779725 /* TourTableViewCell.swift */,
 				5856E22F206CCAA3009092DE /* ExternalLinksTableViewCell.swift */,
-				7A54E759203F4A7D006724B6 /* ViewController.swift */,
 				5856ED56206D859400779725 /* tours.plist */,
 				58431634206DE131000A110B /* FavoriteViewCell.swift */,
 				5856E231206CCD5C009092DE /* Link.swift */,
-				58431632206DD180000A110B /* Note.swift */,
 				5876A68B206ACE6C00E0271B /* SightTableViewCell.swift */,
 				5856ED52206D7F2B00779725 /* Tour.swift */,
 				5876A691206AD2FC00E0271B /* sights.plist */,
-
 				7A54E75B203F4A7D006724B6 /* Main.storyboard */,
 				5856E22D206CC9A2009092DE /* externalLinks.plist */,
 				7A54E75E203F4A7D006724B6 /* Assets.xcassets */,
@@ -243,20 +236,15 @@
 				7A2569B9206AC2660027F0B8 /* TourTableViewController.swift in Sources */,
 				7AB937B3206D734500CCA8B4 /* DataInterface.swift in Sources */,
 				7A2569C0206AC3DA0027F0B8 /* LinksTableViewController.swift in Sources */,
-
 				5856E230206CCAA3009092DE /* ExternalLinksTableViewCell.swift in Sources */,
 				5856E232206CCD5C009092DE /* Link.swift in Sources */,
-				7A54E75A203F4A7D006724B6 /* ViewController.swift in Sources */,
 				5876A690206ACFC900E0271B /* Sight.swift in Sources */,
-
-
 				7A54E758203F4A7D006724B6 /* AppDelegate.swift in Sources */,
 				7A2569C4206ADE370027F0B8 /* Note.swift in Sources */,
 				7A2569B5206AC2190027F0B8 /* SightsTableViewController.swift in Sources */,
 				5876A68C206ACE6C00E0271B /* SightTableViewCell.swift in Sources */,
 				7A2569B7206AC24C0027F0B8 /* SightDetailViewController.swift in Sources */,
 				58431635206DE131000A110B /* FavoriteViewCell.swift in Sources */,
-				58431633206DD180000A110B /* Note.swift in Sources */,
 				7A2569BE206AC3CA0027F0B8 /* FavoritesTableViewController.swift in Sources */,
 				5856ED59206D883900779725 /* TourTableViewCell.swift in Sources */,
 				5856ED53206D7F2B00779725 /* Tour.swift in Sources */,
