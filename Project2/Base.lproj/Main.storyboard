@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -179,13 +180,43 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="2um-UT-3TS">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="noteCell" id="2um-UT-3TS" customClass="NotesTableViewCell" customModule="Project2" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2um-UT-3TS" id="sb0-XP-U4z">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T5W-cQ-dNI">
+                                            <rect key="frame" x="98" y="35" width="261" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VMM-hz-NV5">
+                                            <rect key="frame" x="0.0" y="0.0" width="90" height="90.5"/>
+                                            <color key="backgroundColor" red="0.065580659220000004" green="0.70737532380000001" blue="0.21357032970000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="90" id="Q18-mx-tNs"/>
+                                                <constraint firstAttribute="height" constant="90" id="deG-NY-y4Q"/>
+                                                <constraint firstAttribute="width" secondItem="VMM-hz-NV5" secondAttribute="height" multiplier="1:1" id="wzm-qU-vXd"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="VMM-hz-NV5" firstAttribute="top" secondItem="sb0-XP-U4z" secondAttribute="top" id="K2H-8r-PAS"/>
+                                        <constraint firstAttribute="trailing" secondItem="T5W-cQ-dNI" secondAttribute="trailing" constant="16" id="KvS-zX-h0U"/>
+                                        <constraint firstItem="T5W-cQ-dNI" firstAttribute="leading" secondItem="VMM-hz-NV5" secondAttribute="trailing" constant="8" id="Nnd-VJ-D5T"/>
+                                        <constraint firstAttribute="bottom" secondItem="VMM-hz-NV5" secondAttribute="bottom" id="OzB-np-812"/>
+                                        <constraint firstItem="VMM-hz-NV5" firstAttribute="leading" secondItem="sb0-XP-U4z" secondAttribute="leading" id="Rob-hi-MMx"/>
+                                        <constraint firstItem="VMM-hz-NV5" firstAttribute="centerY" secondItem="sb0-XP-U4z" secondAttribute="centerY" id="ehc-PV-WYT"/>
+                                        <constraint firstItem="T5W-cQ-dNI" firstAttribute="centerY" secondItem="sb0-XP-U4z" secondAttribute="centerY" id="uYw-UR-jJB"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="noteThumbnail" destination="VMM-hz-NV5" id="pER-5k-cbi"/>
+                                    <outlet property="noteTitle" destination="T5W-cQ-dNI" id="u5U-aN-YKl"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -193,11 +224,94 @@
                             <outlet property="delegate" destination="qnM-E4-rYn" id="kVK-Qz-nDv"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Notes" id="zS0-N3-9hq"/>
+                    <navigationItem key="navigationItem" title="Notes" id="zS0-N3-9hq">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="r5g-qc-5wh">
+                            <color key="tintColor" red="0.065580659220000004" green="0.70737532380000001" blue="0.21357032970000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <segue destination="h31-sj-LkP" kind="show" identifier="newNote" id="YfD-4j-Tu1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="h31-sj-LkP" kind="show" identifier="editNote" id="cxf-ok-a0Q"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w5E-Jf-Y6d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="918" y="1333"/>
+            <point key="canvasLocation" x="917.60000000000002" y="1332.6836581709147"/>
+        </scene>
+        <!--Note Detail View Controller-->
+        <scene sceneID="GJv-kE-gVx">
+            <objects>
+                <viewController id="h31-sj-LkP" customClass="NoteDetailViewController" customModule="Project2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="M2b-9d-wQL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="t10-Yd-n2l">
+                                <rect key="frame" x="0.0" y="253" width="375" height="365"/>
+                                <color key="backgroundColor" red="1" green="0.99424239250245772" blue="0.97235221949374606" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6i3-ow-4IY">
+                                <rect key="frame" x="0.0" y="64" width="180" height="181"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                            </imageView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UjZ-b8-P12">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Title" id="9Pz-SK-IrM"/>
+                                </items>
+                            </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V9P-cJ-0Dv">
+                                <rect key="frame" x="188" y="215" width="171" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.065580659222580162" green="0.70737532383419688" blue="0.21357032970752393" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="Select Image">
+                                    <color key="titleColor" red="0.96558807795379809" green="0.99271317818400995" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="pickThumbnail:" destination="h31-sj-LkP" eventType="touchUpInside" id="XMb-GA-KyF"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="t10-Yd-n2l" firstAttribute="top" secondItem="nl0-Gv-Lrz" secondAttribute="top" constant="189" id="ZcL-Ld-u9Y"/>
+                            <constraint firstItem="nl0-Gv-Lrz" firstAttribute="trailing" secondItem="t10-Yd-n2l" secondAttribute="trailing" id="cU9-JX-Sre"/>
+                            <constraint firstItem="nl0-Gv-Lrz" firstAttribute="bottom" secondItem="t10-Yd-n2l" secondAttribute="bottom" id="dMT-Mg-gvc"/>
+                            <constraint firstItem="t10-Yd-n2l" firstAttribute="leading" secondItem="nl0-Gv-Lrz" secondAttribute="leading" id="zGJ-87-HVJ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="nl0-Gv-Lrz"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="vPU-VH-ODU">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="eME-OS-2NQ">
+                            <color key="tintColor" red="0.065580659220000004" green="0.70737532380000001" blue="0.21357032970000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <action selector="saveNote:" destination="h31-sj-LkP" id="OXr-pH-2Ua"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="textBox" destination="t10-Yd-n2l" id="t7t-Lm-QcZ"/>
+                        <outlet property="thumbnail" destination="6i3-ow-4IY" id="RnO-Hg-kus"/>
+                        <segue destination="D9w-xu-cji" kind="unwind" identifier="saveNote" unwindAction="saveNoteWithSender:" id="yfc-dc-tae"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tJ5-18-SFv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="D9w-xu-cji" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1693.5999999999999" y="1332.6836581709147"/>
         </scene>
         <!--Favorites-->
         <scene sceneID="FAl-dO-EQh">
@@ -301,10 +415,12 @@
         <scene sceneID="TC5-9x-MFM">
             <objects>
                 <tabBarController id="BIj-wK-9e3" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6O5-CV-iKq">
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" barStyle="black"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="6O5-CV-iKq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="selectedImageTintColor" red="0.065580659220000004" green="0.70737532380000001" blue="0.21357032970000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </tabBar>
                     <connections>
                         <segue destination="dsX-4z-WLC" kind="relationship" relationship="viewControllers" id="aT9-So-n6U"/>
@@ -318,13 +434,14 @@
             </objects>
             <point key="canvasLocation" x="-1495" y="1333"/>
         </scene>
-        <!--Item-->
+        <!--Sights-->
         <scene sceneID="K0t-gc-VaK">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dsX-4z-WLC" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="CXK-V4-aHC"/>
+                    <tabBarItem key="tabBarItem" title="Sights" image="binoculars-300px" id="CXK-V4-aHC"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pKS-wn-rqB">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="pKS-wn-rqB">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -337,13 +454,14 @@
             </objects>
             <point key="canvasLocation" x="65" y="-54"/>
         </scene>
-        <!--Item-->
+        <!--Tours-->
         <scene sceneID="krp-y2-sCb">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pZJ-kn-xUL" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="TX7-Nk-f68"/>
+                    <tabBarItem key="tabBarItem" title="Tours" image="camera-icon" id="TX7-Nk-f68"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7og-se-o1m">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="7og-se-o1m">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -356,13 +474,14 @@
             </objects>
             <point key="canvasLocation" x="65" y="628"/>
         </scene>
-        <!--Item-->
+        <!--Notes-->
         <scene sceneID="5dY-Wv-Dgw">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zmz-ml-eob" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="C58-l1-wCv"/>
+                    <tabBarItem key="tabBarItem" title="Notes" image="write" id="C58-l1-wCv"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1V3-KB-Wcq">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="1V3-KB-Wcq">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -375,13 +494,14 @@
             </objects>
             <point key="canvasLocation" x="65" y="1333"/>
         </scene>
-        <!--Item-->
+        <!--Favorites-->
         <scene sceneID="Qs6-nH-MdZ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="miK-yv-Y12" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="gYm-N8-YV5"/>
+                    <tabBarItem key="tabBarItem" title="Favorites" image="heart-icon" id="gYm-N8-YV5"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="CNL-0l-KLa">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="CNL-0l-KLa">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -394,13 +514,14 @@
             </objects>
             <point key="canvasLocation" x="65" y="2003"/>
         </scene>
-        <!--Item-->
+        <!--Links-->
         <scene sceneID="uP7-zI-Cjs">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Tia-7u-oWI" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="eNF-VX-cnn"/>
+                    <tabBarItem key="tabBarItem" title="Links" image="chain-icon" id="eNF-VX-cnn"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="VF6-gA-lKQ">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="VF6-gA-lKQ">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -414,4 +535,14 @@
             <point key="canvasLocation" x="65" y="2697"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="binoculars-300px" width="25" height="25"/>
+        <image name="camera-icon" width="25" height="25"/>
+        <image name="chain-icon" width="25" height="11"/>
+        <image name="heart-icon" width="25" height="23"/>
+        <image name="write" width="20" height="28"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="cxf-ok-a0Q"/>
+    </inferredMetricsTieBreakers>
 </document>
