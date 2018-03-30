@@ -11,6 +11,7 @@
 		5843162E206DC9F7000A110B /* bnj.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5843162B206DC9F7000A110B /* bnj.jpg */; };
 		5843162F206DC9F7000A110B /* church.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5843162C206DC9F7000A110B /* church.jpg */; };
 		58431635206DE131000A110B /* FavoriteViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58431634206DE131000A110B /* FavoriteViewCell.swift */; };
+		58431639206E0A1E000A110B /* NoteDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58431638206E0A1E000A110B /* NoteDetailViewController.swift */; };
 		5856E22E206CC9A2009092DE /* externalLinks.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5856E22D206CC9A2009092DE /* externalLinks.plist */; };
 		5856E230206CCAA3009092DE /* ExternalLinksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5856E22F206CCAA3009092DE /* ExternalLinksTableViewCell.swift */; };
 		5856E232206CCD5C009092DE /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5856E231206CCD5C009092DE /* Link.swift */; };
@@ -40,6 +41,7 @@
 		5843162B206DC9F7000A110B /* bnj.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bnj.jpg; sourceTree = "<group>"; };
 		5843162C206DC9F7000A110B /* church.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = church.jpg; sourceTree = "<group>"; };
 		58431634206DE131000A110B /* FavoriteViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewCell.swift; sourceTree = "<group>"; };
+		58431638206E0A1E000A110B /* NoteDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailViewController.swift; sourceTree = "<group>"; };
 		5856E22D206CC9A2009092DE /* externalLinks.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = externalLinks.plist; path = "External Links/externalLinks.plist"; sourceTree = "<group>"; };
 		5856E22F206CCAA3009092DE /* ExternalLinksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExternalLinksTableViewCell.swift; path = "External Links/ExternalLinksTableViewCell.swift"; sourceTree = "<group>"; };
 		5856E231206CCD5C009092DE /* Link.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Link.swift; path = "External Links/Link.swift"; sourceTree = "<group>"; };
@@ -56,7 +58,6 @@
 		7A2569BB206AC3200027F0B8 /* NotesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesTableViewController.swift; sourceTree = "<group>"; };
 		7A2569BD206AC3CA0027F0B8 /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
 		7A2569BF206AC3DA0027F0B8 /* LinksTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksTableViewController.swift; sourceTree = "<group>"; };
-		7A2569C1206ADD610027F0B8 /* NoteDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailViewController.swift; sourceTree = "<group>"; };
 		7A2569C3206ADE370027F0B8 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Note.swift; path = Project2/CustomDataTypes/Note.swift; sourceTree = SOURCE_ROOT; };
 		7A54E754203F4A7C006724B6 /* Project2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A54E757203F4A7D006724B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -87,10 +88,10 @@
 				7A2569B6206AC24C0027F0B8 /* SightDetailViewController.swift */,
 				7A2569B8206AC2660027F0B8 /* TourTableViewController.swift */,
 				7A2569BB206AC3200027F0B8 /* NotesTableViewController.swift */,
-				7A2569C1206ADD610027F0B8 /* NoteDetailViewController.swift */,
 				7A2569BD206AC3CA0027F0B8 /* FavoritesTableViewController.swift */,
 				7A2569BF206AC3DA0027F0B8 /* LinksTableViewController.swift */,
 				7AF0427A206DC44A00EB0F35 /* NotesTableViewCell.swift */,
+				58431638206E0A1E000A110B /* NoteDetailViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -244,6 +245,7 @@
 				7A2569B5206AC2190027F0B8 /* SightsTableViewController.swift in Sources */,
 				5876A68C206ACE6C00E0271B /* SightTableViewCell.swift in Sources */,
 				7A2569B7206AC24C0027F0B8 /* SightDetailViewController.swift in Sources */,
+				58431639206E0A1E000A110B /* NoteDetailViewController.swift in Sources */,
 				58431635206DE131000A110B /* FavoriteViewCell.swift in Sources */,
 				7A2569BE206AC3CA0027F0B8 /* FavoritesTableViewController.swift in Sources */,
 				5856ED59206D883900779725 /* TourTableViewCell.swift in Sources */,
