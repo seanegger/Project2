@@ -30,6 +30,12 @@ class NotesTableViewController: UITableViewController {
         noteList = dataInterface.loadData() as! [Note]
         navigationItem.leftBarButtonItem = editButtonItem
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // placed here to ensure if a note is not saved but created it will still show up
+        tableView.reloadData()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7A247148206C397400BD29BD /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A247147206C397400BD29BD /* PhotoPicker.swift */; };
 		7A2569B5206AC2190027F0B8 /* SightsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2569B4206AC2190027F0B8 /* SightsTableViewController.swift */; };
 		7A2569B7206AC24C0027F0B8 /* SightDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2569B6206AC24C0027F0B8 /* SightDetailViewController.swift */; };
 		7A2569B9206AC2660027F0B8 /* TourTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2569B8206AC2660027F0B8 /* TourTableViewController.swift */; };
@@ -25,7 +24,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7A247147206C397400BD29BD /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		7A2569B4206AC2190027F0B8 /* SightsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SightsTableViewController.swift; sourceTree = "<group>"; };
 		7A2569B6206AC24C0027F0B8 /* SightDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SightDetailViewController.swift; sourceTree = "<group>"; };
 		7A2569B8206AC2660027F0B8 /* TourTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourTableViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +95,7 @@
 		7A54E756203F4A7C006724B6 /* Project2 */ = {
 			isa = PBXGroup;
 			children = (
+				7AF0427C206DF8FA00EB0F35 /* Utilities */,
 				7A2569C5206ADF050027F0B8 /* CustomDataTypes */,
 				7A2569BA206AC2860027F0B8 /* ViewControllers */,
 				7A54E757203F4A7D006724B6 /* AppDelegate.swift */,
@@ -104,10 +103,16 @@
 				7A54E75E203F4A7D006724B6 /* Assets.xcassets */,
 				7A54E760203F4A7D006724B6 /* LaunchScreen.storyboard */,
 				7A54E763203F4A7D006724B6 /* Info.plist */,
-				7A247147206C397400BD29BD /* PhotoPicker.swift */,
-				7AB937B2206D734500CCA8B4 /* DataInterface.swift */,
 			);
 			path = Project2;
+			sourceTree = "<group>";
+		};
+		7AF0427C206DF8FA00EB0F35 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				7AB937B2206D734500CCA8B4 /* DataInterface.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,7 +189,6 @@
 			files = (
 				7A2569B9206AC2660027F0B8 /* TourTableViewController.swift in Sources */,
 				7AB937B3206D734500CCA8B4 /* DataInterface.swift in Sources */,
-				7A247148206C397400BD29BD /* PhotoPicker.swift in Sources */,
 				7A2569C0206AC3DA0027F0B8 /* LinksTableViewController.swift in Sources */,
 				7A2569C2206ADD610027F0B8 /* NoteDetailViewController.swift in Sources */,
 				7A54E758203F4A7D006724B6 /* AppDelegate.swift in Sources */,

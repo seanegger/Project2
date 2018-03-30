@@ -43,11 +43,11 @@ class DataInterface
     }
     
     /*
-     Loads data from archive. This retrieves a list of notes
+     Loads data from archive. This retrieves any type
      */
     func loadData() -> Any
     {
-        let data = NSKeyedUnarchiver.unarchiveObject(withFile: getPath()) as? [Note]
+        let data = NSKeyedUnarchiver.unarchiveObject(withFile: getPath())
         return data
     }
     
