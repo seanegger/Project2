@@ -92,8 +92,8 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VMM-hz-NV5">
-                                            <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
-                                            <color key="backgroundColor" red="1" green="0.57516719949999995" blue="0.1843193994" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="90" height="90.5"/>
+                                            <color key="backgroundColor" red="0.065580659220000004" green="0.70737532380000001" blue="0.21357032970000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="90" id="Q18-mx-tNs"/>
                                                 <constraint firstAttribute="height" constant="90" id="deG-NY-y4Q"/>
@@ -124,6 +124,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Notes" id="zS0-N3-9hq">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="r5g-qc-5wh">
+                            <color key="tintColor" red="0.065580659220000004" green="0.70737532380000001" blue="0.21357032970000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <segue destination="h31-sj-LkP" kind="show" identifier="newNote" id="YfD-4j-Tu1"/>
                             </connections>
@@ -147,11 +148,16 @@
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="t10-Yd-n2l">
                                 <rect key="frame" x="0.0" y="253" width="375" height="365"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="0.99424239250245772" blue="0.97235221949374606" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6i3-ow-4IY">
+                                <rect key="frame" x="0.0" y="64" width="180" height="181"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                            </imageView>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UjZ-b8-P12">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -160,18 +166,22 @@
                                 </items>
                             </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V9P-cJ-0Dv">
-                                <rect key="frame" x="240" y="137" width="119" height="30"/>
+                                <rect key="frame" x="188" y="215" width="187" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.065580659222580162" green="0.70737532383419688" blue="0.21357032970752393" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="Select Thumbnail"/>
+                                <state key="normal" title="Select Thumbnail">
+                                    <color key="titleColor" red="0.96558807795379809" green="0.99271317818400995" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="pickThumbnail:" destination="h31-sj-LkP" eventType="touchUpInside" id="XMb-GA-KyF"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6i3-ow-4IY">
-                                <rect key="frame" x="0.0" y="64" width="180" height="181"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -184,6 +194,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="vPU-VH-ODU">
                         <barButtonItem key="rightBarButtonItem" title="Save" id="eME-OS-2NQ">
+                            <color key="tintColor" red="0.065580659220000004" green="0.70737532380000001" blue="0.21357032970000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <action selector="saveNote:" destination="h31-sj-LkP" id="OXr-pH-2Ua"/>
                             </connections>
@@ -262,10 +273,12 @@
         <scene sceneID="TC5-9x-MFM">
             <objects>
                 <tabBarController id="BIj-wK-9e3" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6O5-CV-iKq">
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" barStyle="black"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="6O5-CV-iKq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="selectedImageTintColor" red="0.065580659220000004" green="0.70737532380000001" blue="0.21357032970000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </tabBar>
                     <connections>
                         <segue destination="dsX-4z-WLC" kind="relationship" relationship="viewControllers" id="aT9-So-n6U"/>
@@ -279,11 +292,11 @@
             </objects>
             <point key="canvasLocation" x="-1495" y="1333"/>
         </scene>
-        <!--Item-->
+        <!--Sights-->
         <scene sceneID="K0t-gc-VaK">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dsX-4z-WLC" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="CXK-V4-aHC"/>
+                    <tabBarItem key="tabBarItem" title="Sights" image="binoculars-300px" id="CXK-V4-aHC"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pKS-wn-rqB">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -298,11 +311,11 @@
             </objects>
             <point key="canvasLocation" x="65" y="-54"/>
         </scene>
-        <!--Item-->
+        <!--Tours-->
         <scene sceneID="krp-y2-sCb">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pZJ-kn-xUL" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="TX7-Nk-f68"/>
+                    <tabBarItem key="tabBarItem" title="Tours" image="camera-icon" id="TX7-Nk-f68"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7og-se-o1m">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -317,13 +330,14 @@
             </objects>
             <point key="canvasLocation" x="65" y="628"/>
         </scene>
-        <!--Item-->
+        <!--Notes-->
         <scene sceneID="5dY-Wv-Dgw">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zmz-ml-eob" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="C58-l1-wCv"/>
+                    <tabBarItem key="tabBarItem" title="Notes" image="write" id="C58-l1-wCv"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1V3-KB-Wcq">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="1V3-KB-Wcq">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -336,11 +350,11 @@
             </objects>
             <point key="canvasLocation" x="65" y="1333"/>
         </scene>
-        <!--Item-->
+        <!--Favorites-->
         <scene sceneID="Qs6-nH-MdZ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="miK-yv-Y12" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="gYm-N8-YV5"/>
+                    <tabBarItem key="tabBarItem" title="Favorites" image="heart-icon" id="gYm-N8-YV5"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="CNL-0l-KLa">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -355,11 +369,11 @@
             </objects>
             <point key="canvasLocation" x="65" y="2003"/>
         </scene>
-        <!--Item-->
+        <!--Links-->
         <scene sceneID="uP7-zI-Cjs">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Tia-7u-oWI" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="eNF-VX-cnn"/>
+                    <tabBarItem key="tabBarItem" title="Links" image="chain-icon" id="eNF-VX-cnn"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="VF6-gA-lKQ">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -375,6 +389,13 @@
             <point key="canvasLocation" x="65" y="2697"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="binoculars-300px" width="25" height="25"/>
+        <image name="camera-icon" width="25" height="25"/>
+        <image name="chain-icon" width="25" height="11"/>
+        <image name="heart-icon" width="25" height="23"/>
+        <image name="write" width="20" height="28"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="cxf-ok-a0Q"/>
     </inferredMetricsTieBreakers>

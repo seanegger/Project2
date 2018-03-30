@@ -15,12 +15,6 @@ class NoteDetailViewController: UIViewController, UINavigationControllerDelegate
     
     
     @IBAction func pickThumbnail(_ sender: UIButton) {
-//        let picker = PhotoPicker()
-//        picker.pickPhoto()
-//        if let chosenImage = picker.image
-//        {
-//            note?.thumbnail? = chosenImage
-//        }
         // create an image picker
         let picker = UIImagePickerController()
         // set image picker settings
@@ -33,6 +27,9 @@ class NoteDetailViewController: UIViewController, UINavigationControllerDelegate
         present (picker, animated:  true, completion: nil)
     }
     
+    /*
+     Neccessary for implementing image picker. Sets the thumbnail and the note thumbnail to the chosen image
+    */
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])
     {
         //get the image
@@ -41,7 +38,6 @@ class NoteDetailViewController: UIViewController, UINavigationControllerDelegate
             //set notes thumbnail to the image
             note?.thumbnail = chosenImage
             //set the current NoteDetailView UIImage to the image
-            thumbnail.contentMode = .scaleAspectFit
             thumbnail.image = chosenImage
         }
         //dismiss the image picker view
@@ -81,6 +77,10 @@ class NoteDetailViewController: UIViewController, UINavigationControllerDelegate
         if let noteText = note?.text
         {
             textBox.text = noteText
+        }
+        if let image = note?.thumbnail
+        {
+            thumbnail.image = image
         }
     }
     

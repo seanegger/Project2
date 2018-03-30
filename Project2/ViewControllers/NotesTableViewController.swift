@@ -27,10 +27,7 @@ class NotesTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         //load the saved notes
-        if let loadNoteList = dataInterface.loadData()
-        {
-            noteList = loadNoteList
-        }
+        noteList = dataInterface.loadData() as! [Note]
         navigationItem.leftBarButtonItem = editButtonItem
     }
 

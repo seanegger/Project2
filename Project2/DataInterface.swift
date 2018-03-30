@@ -25,21 +25,7 @@ class DataInterface
         let archiveURL = documentsDirectory.appendingPathComponent(fileName)
         return archiveURL.path
     }
-    
-    /*
-     Saves data to an archive. This overload saves a list of notes
-     */
-    func saveData(data: [Note])
-    {
-        if NSKeyedArchiver.archiveRootObject(data, toFile: getPath())
-        {
-            print("Data Sucesfully Saved")
-        }
-        else
-        {
-            print("RUNTIME_EXCEPTION::Data not succesfully saved")
-        }
-    }
+
     
     /*
      Saves data to an archive. This overload saves any type
@@ -54,15 +40,6 @@ class DataInterface
         {
             print("RUNTIME_EXCEPTION::Data not succesfully saved")
         }
-    }
-    
-    /*
-     Loads data from archive. This retrieves a list of notes
-    */
-    func loadData() -> [Note]?
-    {
-        let notes = NSKeyedUnarchiver.unarchiveObject(withFile: getPath()) as? [Note]
-        return notes
     }
     
     /*
